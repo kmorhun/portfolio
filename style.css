@@ -62,4 +62,18 @@ nav {
     margin-right: 10px;
 }
 
+#content {
+    display: flex;
+}
+
+
+#selfie {
+    width: 100%;
+    height: 100%;
+    float: right;
+    border-radius: 5%;
+    margin-right: 5%;
+    margin-left: 3%;
+}
+
    
