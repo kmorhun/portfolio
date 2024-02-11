@@ -91,12 +91,24 @@ nav p:hover {
     margin-bottom: 5%;
     margin-left: 10%;
     margin-right: 10%;
+
+    h3 {
+        margin: 5px;
+    }
 }
 
 #resume-header {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    h2 {
+        margin: 5px;
+    }
+
+    a {
+        margin: 5px;
+    }
 }
 
 .resume-entry-header{
@@ -117,4 +129,7 @@ nav p:hover {
     text-align: right;
 }
 
+#resume-skills-body p{
+    margin: 5px;
+}
    
