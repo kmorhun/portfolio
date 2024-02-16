@@ -17,34 +17,57 @@ body {
     padding: 2em;
 }
 
-label, input, textarea {
-	/* Make these elements behave like block elements,
-	   i.e. occupy the whole available width and create line breaks before and after
-	 */
-	display: block;
+// label, input, textarea {
+// 	/* Make these elements behave like block elements,
+// 	   i.e. occupy the whole available width and create line breaks before and after
+// 	 */
+// 	display: block;
+// }
+
+// label {
+// 	/* Add some space before each label that grows as the font size grows */
+// 	margin-top: 1em;
+// }
+
+// input, textarea {
+// 	/* Because form fields are special,
+// 	   they also need `width: 100%`
+// 	   to actually fill the whole available width.
+// 	 */
+// 	width: 35%;
+
+// 	/* Special sizing mode that makes the element’s width
+// 	   include internal spacing (padding) and borders
+// 	 */
+// 	box-sizing: border-box;
+
+// 	/* Use the same font and font metrics as the rest of the page */
+// 	font: inherit;
+// }
+#contact-title {
+    text-align: center;
 }
 
-label {
-	/* Add some space before each label that grows as the font size grows */
-	margin-top: 1em;
+form {
+    margin: auto;
+    max-width: 50ch;
+    display: grid;
+    gap: 1em;
+    // grid-template-columns: auto 1fr;
+    grid-template-columns: subgrid;
+
+    label {
+        display: grid;
+    }
+
+    button {
+        grid-column: 1 / -1;
+    }
 }
 
 input, textarea {
-	/* Because form fields are special,
-	   they also need `width: 100%`
-	   to actually fill the whole available width.
-	 */
-	width: 35%;
-
-	/* Special sizing mode that makes the element’s width
-	   include internal spacing (padding) and borders
-	 */
-	box-sizing: border-box;
-
-	/* Use the same font and font metrics as the rest of the page */
-	font: inherit;
+    font: inherit;
 }
-
 
 nav {
     display: flex;
