@@ -103,6 +103,7 @@ nav .current-page {
     border-radius: 5%;
     margin-right: 5%;
     margin-left: 3%;
+    max-width: 40%;
 }
 
 /* RESUME FORMATTING */
