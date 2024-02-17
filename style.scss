@@ -55,9 +55,10 @@ form {
     gap: 1em;
     // grid-template-columns: auto 1fr;
     grid-template-columns: subgrid;
-
+    
     label {
         display: grid;
+        grid-template-columns: .2fr 1fr;
     }
 
     button {
