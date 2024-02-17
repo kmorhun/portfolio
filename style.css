@@ -93,7 +93,7 @@ nav .current-page {
 
 /* INTRO PAGE */
 #intro-content {
-    display: flex;
+    /* display: flex; */
 }
 
 #selfie {
