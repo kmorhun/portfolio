@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<style>
+	img {
+		width: 100%;
+	}
+</style>
+
+<head>
+	<title>Vis & Society Assignment 2</title>
+	<link rel="stylesheet" href="../style.css" />
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+</head>
+
+<!-- TODO: GET IMAGES TO FIT -->
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 2</small>
+			Exploratory Data Analysis
+		</h1>
+
+		<p>
+			<strong>Kateryna Morhun</strong> — <em>kmorhun@mit.edu</em>
+		</p>
+	</header>
+	<main>
+		<section>
+			<h2>Subtheme: Corporate Owners and Evictions</h2>
+
+			<h3>Overall Analysis Questions</h3>
+			<ol>
+				<li>Do minority (non-white) demographic groups tend to live in low-owner occupancy regions?</li>
+					<ul><li>Motivation: Similarly to my motivation from the first question, assuming that corporate and absentee
+						ownership leads to a greater number of eviction filings as 
+						<em>Housing Justice Beyond the Emergency</em> suggests,
+						I wanted to confirm that Boston's distribution of corporate and absentee ownership
+						is correlated with its minority population distribution, and gain some insights
+						into how much more vulnerable Boston's non-white population is to getting evicted.
+					</li></ul>
+				<li>How has COVID-19 and the moratorium on evictions affected corporate/absentee ownership in the Greater Boston Area?</li>
+					<ul><li>Motivation: According to <em>Housing Justice Beyond the Emergency</em>,
+						the Massachusetts moratorium on evictions and foreclosures was lifted
+						in October 2020, and that neighborhoods with more 
+						absentee and corporate landlords saw more eviction filings. 
+						The dataset does not include eviction data, but it does include corporate and absentee ownership data,
+						so I wanted to confirm that the data supports this earlier research.</li></ul>
+				<li>What relationship does corporate ownership have with domestic unit vacancy?</li>
+					<ul><li>Motivation: I presume that landlords are more likely to evict their 
+						tenants if they believe they can easily find new ones. I also presume that
+						corporate landlords are more likely to evict their tenants than individual landlords, 
+						because they are less likely to have personal relationships with their tenants.
+						In the article <em>In 83 Million Eviction Records, a Sweeping and Intimate New Look at Housing in America</em>,
+						the authors emphasize the opaqueness of the eviction appeal process, and I would assume that 
+						corporate landlords are more likely to take advantage of this opaqueness to more easily evict their tenants.
+						To this end, I wanted to see if corporate ownership is correlated with domestic unit vacancy.
+					</li></ul>
+			</ol>
+		</section>
+
+		<section>
+			<h2>Discoveries & Insights</h2>
+
+			<p>I've already made several assumptions of the data, the most prominent of which is 
+				the assumption that all corporate ownership is the same. In reality, both university-owned apartments
+				and large corporate-owned apartments buildings are included, and I presume the former is less likely to evict
+				its tenants than the latter, and that removing college students from housing does not count as an eviction in 
+				the same way that removing a family from housing does. I do not filter out regions with a high percentage
+				of college students, but I took note of them and factored them into my analysis of the data.
+			</p>
+
+			<p>Let's begin with some univariate summaries and data quality issues.</p>
+
+			<figure>
+				<img src="rates_hist.png" alt="" />
+				<figcaption>
+				First, a few histograms of the variables we are most interested in. 
+				So far so good. Both rates have values between 0 and 1, and 
+				there are no glaring outliers in the distribution. The overall 
+				corporate ownership rate is lower than I would have expected.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="pct_college.png" alt="" />
+				<figcaption>
+				Let's take a look as the distributions of some demographic groups around Boston.
+				This graph takes the number of college students in a region and the total population
+				of that region and generates a calculated field that is the percentage of college students in the region.
+				Evidently, Longwood and Fenway are the regions with the highest percentage of college students,
+				which is not surprising given the presence of BU and several other universities in the area.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="pctcorrectional.png" alt="" />
+				<figcaption>
+				This graph was generated in the same way as the previous one, but it calculates the percentage of 
+				the population in correctional facilities. Notably, Roxbury is marked as having the greatest
+				percentage of its population in correctional facilities. However, this may or may not be a data quality issue, 
+				since I was not able to find a correctional facility located in Roxbury to explain this. The Suffolk County House of Correction
+				is located in the region covered by South Boston, but South Boston is not included among the neighborhoods
+				with a number of residents in correctional facilities. In any case, <strong>is worth paying close attention to Roxbury.</strong> 
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="demographics_by_nhood.png" alt="" />
+				<figcaption>
+				The figure above depicts a subset of the racial distribution of Boston by neighborhood.
+				Some notable trends to notice are that the neighborhoods with the highest percentage of black residents
+				are Mattapan, Hyde Park, Roxbury, and Dorchester. East Boston has the highest percentage of Hispanic residents, 
+				Chinatown has the highest percentage of Asian and Pacific Islander residents, and the neighborhoods with the highest percentage of white residents are 
+				North End, Beacon Hill, South Boston, and the South Boston Waterfront.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="acor_aoor_by_year.png" alt="" />
+				<figcaption>
+				The figure above depicts how the corporate ownership rate and the owner occupancy rate have changed over time. 
+				The most notable trends are that <strong>the corporate ownership rate has increased over time, while the owner occupancy rate has decreased.</strong>
+				Just around 2020, the corporate ownership rate seems to start rising at a faster rate, but the owner occupancy rate seems
+				unaffected. 
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="aoor_vs_acor_by_nhood.png" alt="" />
+				<figcaption>
+				Let's explore the relationship between corporate ownership and owner occupancy. 
+				The graph above compares the two rates, averaged over all years (from 2004 to 2024), for each neighborhood.
+				Each mark is also colored and sized by the percentage of black residents in the neighborhood. Curiously,
+				<strong>the neighborhoods with the highest proportion of black residents tended to have
+				lower corporate ownership rates and higher owner occupancy rates</strong>, which runs contrary to my initial hypothesis.
+				Roxbury shows itself to be an outlier for this pattern, which <strong>may suggest that the nature of 
+				corporate ownership in Roxbury is different</strong> from the nature of corporate ownership in other neighborhoods.
+				</figcaption>
+			</figure>
+
+			<p>Wishing to address the question of corporate and absentee ownership over time, 
+				I experimented with several ways of encoding time in the following visualizations. 
+				Each one has its own strengths and weaknesses, and emphasizes different aspects of the data.</p>
+			
+			<figure>
+				<img src="moor_vs_cor_by_nhood.png" alt="" />
+				<figcaption>
+					The above graph is admittedly busy and not the most intuitive to parse, but it offers 
+					some useful insights that may be visualized in an alternate way. Each line represents a neighborhood's 
+					corporate ownership and owner occupancy rate over time, with the top of the line representing 2004,
+					and the bottom representing 2024. The lines are colored by the percent of non-white residents in the neighborhood.
+					Second, the axes for both corporate ownership and owner occupancy rates are reversed to emphasize that the parametric direction of 
+					the two rates over time travels from the top to the bottom and from left to right, and to emphasize the negative
+					consequence of the changes in the rates. From this visualization, the most notable feature is the highlighted
+					<strong>South Boston Waterfront neighborhood, which seems to experience the most volatility in both rates over time,
+					especially starting in 2008.</strong> 
+				</figcaption>
+			</figure>
+
+			<figure>
+				<a href="https://youtu.be/GBpA8LsFCsg">See the animation here</a> 				
+				<figcaption>
+					This perspective on the rates over time more explicitly shows the passage of time within
+					each neighborhood, but each neighborbood must be viewed independently, so it may be difficult to 
+					make comparisons between neighborhoods with this visualization. The same insights from the first visualization
+					apply. 
+				</figcaption>
+			</figure>
+
+			<figure>
+				<a href="https://youtu.be/xwgbCLg30A8">See the animation here</a>
+				<figcaption>
+					This final visualization of the raw rates over time was created by 
+					joining the existing data with a geospatial dataset of the relevant Boston neighborhoods,
+					which was linked in the metadata of the original dataset. The result is a side-by-side comparison
+					of corporate ownership and owner occupancy rates over time. This visualization places
+					the most emphasis on the geographic distribution of the rates over time, and the geographic 
+					inequities in their distribution. It also visually emphasizes the <strong>increase in corporate ownership growth and 
+					decrease in owner occupancy rate starting around 2020, or the start of the COVID-19 pandemic.</strong> 
+					A weakness of this visualization is its lack of quantitative information, so I used this insight to 
+					inspire the next visualization.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="null_nhood_map.png" alt="" />
+				<figcaption>
+					But first, a <strong>data quality issue</strong>! The map above shows an unnamed geographic neighborhood
+					which does not correspond to any of the neighborhoods in the original dataset, and which does not have quantitative
+					data associated with it. I suspect that it is an artifact of a data join where not every geographic
+					neighborhood has an equivalent in the original dataset. For this reason, I have removed it from all geographic visualizations of the data. 
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<img src="demo_maps.png" alt="" />
+				<figcaption>
+					As a sanity check before moving on to a more detailed analysis of corporate and absentee ownership,
+					over time, I also mapped several subsets of the demographic data to compare to the geographic distribution of the rates.
+					This visualization emphasizes that <strong>the regions with the highest rates of corporate ownership are actually the regions with the highest
+					percentage of white residents, and that the regions with the highest rates of owner occupancy are the regions with the highest percentage of black residents.</strong>
+				</figcaption>
+			</figure>
+
+			<p>In order to get a quantifiable measure of the change in corporate and absentee ownership over time, I calculated the year-over-year percentage difference
+				The next 6 visualizations are the results of these calculations. The data broken down by demographics are filtered 
+				to only include the years between 2018 and 2024, for ease of visual comprehension.</p>
+
+			<figure>
+				<img src="pctdif_cor_vs_year.png" alt="" />
+				<figcaption>
+				This figure depicts the change in corporate ownership rate in Boston over time. 
+				The key insight to strengthen here is that, <strong>in 2020, the corporate ownership rate increases
+				by over 25%, an all-time high since 2004.</strong> The change in rate appears to have returned to its normal levels
+				in recent years, but there is not enough data to confirm this. 
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="pctdiff_oor_vs_year.png" alt="" />
+				<figcaption>
+				This figure depicts the change in ownership occupancy rate in Boston over time.
+				There appears to be a slight inclination towards a decrease in owner occupancy over time,
+				but the change is not as drastic as the change in corporate ownership rate. 
+				<strong>The COVID-19 pandemic does not appear to have had a significant effect on the owner occupancy rate overall.</strong>
+				</figcaption>
+			</figure>
+
+
+			<figure>
+				<img src="pctdiff_cor_black.png" alt="" />
+				<figcaption>
+				This figure depicts the change in corporate ownership rate in Boston around the Covid-19 pandemic, focusing
+				on the neighborhoods with the highest percentage of black residents. 
+				The largest change in corporate ownership rate (+120%) did indeed occur in 2020.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="pctdiff_cor_white.png" alt="" />
+				<figcaption>
+				This figure depicts the change in corporate ownership rate in Boston around the Covid-19 pandemic, focusing
+				on the neighborhoods with the highest percentage of white residents. 
+				The largest change in corporate ownership rate (+140%) did indeed occur in 2020. This is 
+				a more drastic change than in the neighborhoods with the highest percentage of black residents.
+				Additionally, the <strong>South Boston Waterfront neighborhood, which was the most volatile in the previous visualizations, continues
+				to show itself to be an outlier</strong> in this visualization, occasionally changing rates in the opposite direction of the rest of the neighborhoods.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="pctdiff_oor_black.png" alt="" />
+				<figcaption>
+				This figure depicts the change in ownership occupancy rates in Boston around the Covid-19 pandemic, focusing
+				on the neighborhoods with the highest percentage of black residents. 
+				2020 did indeed bring a significant change in the owner occupancy rate, but <strong>for 
+				these neighborhoods, owner occupancy rates increased during the pandemic.</strong>
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="pctdiff_oor_white.png" alt="" />
+				<figcaption>
+				This figure depicts the change in ownership occupancy rates in Boston around the Covid-19 pandemic, focusing
+				on the neighborhoods with the highest percentage of white residents. 
+				2020 did indeed bring a significant change in the owner occupancy rate. For 
+				these mostly white neighborhoods, owner occupancy rates decreased during the pandemic. <strong>
+				This runs contrary to the pattern experienced by the mostly black neighborhoods.</strong>
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="pctnonwhite_pctvacant.png" alt="" />
+				<figcaption>
+					Finally, to address my final question, investigating the relationship between corporate ownership and domestic unit vacancy,
+					I created a scatterplot of the percentage of non-white residents in a neighborhood and the percentage of vacant domestic units in that neighborhood.
+					Each neighborhood is represented by a point, and colored and sized by the average corporate ownership rate between 2004 and 2024.
+					While <strong>there doesn't seem to be a strong correlation between the percent of nonwhite residents and the percent of vacant domestic units</strong> (although, if you remove Roxbury,
+					which was previously suspected to be an outlier, the correlation becomes stronger), there appears to be a trend of <strong>higher corporate ownership rates being associated with higher percentages of vacant domestic units.</strong>
+					Fenway and Longwood have more college students than any other neighborhood, so without a more detailed
+					breakdown of types of corporate owners, it is difficult to decide whether these two neighborhoods
+					weaken the correlation, or whether they are outliers and should be removed from this analysis. In either case,
+					<strong>South Boston Waterfront is once again a notable point to pay attention to, as it has one of the highest average corporate ownership rates, and has the highest percentage of vacant domestic units.</strong>
+				</figcaption>
+			</figure>
+		</section>
+
+		<section>
+			<h2>Summary</h2>
+
+			<p>There are several key insights to take away from this exploratory data analysis, 
+				several questions to follow up on, and several additional sources of data to find to address these questions.</p>
+
+			<h3>Key Insights</h3>
+			<ol>
+				<li>Be careful when joining datasets, as you may end up with null entries</li>
+				<li>Corporate ownership rates have been increasing over time, and the COVID-19 pandemic has accelerated this increase.</li>
+				<li>Owner occupancy rates have been decreasing over time, but the COVID-19 pandemic has not had a significant effect on this rate.</li>
+				<li>Neighborhoods with the highest percentage of black residents tend to have lower corporate ownership rates and higher owner occupancy rates</li>
+				<li>Neighborhoods with the highest percentage of white residents tend to have higher corporate ownership rates and lower owner occupancy rates</li>
+				<li>In 2020, white neighborhoods experienced a greater uptick in corporate ownership rates than black neighborhoods</li>
+				<li>In 2020, white neighborhoods experienced a decrease in ownership occupancy rates, whereas black neighborhoods experienced an increase</li>
+				<li>Neighborhoods with higher corporate ownership rates tend to have higher percentages of vacant domestic units, but there is not a strong correlation between the percentage of non-white residents and the percentage of vacant domestic units.</li>
+			</ol>
+
+			<h3>Follow-Up Questions</h3>
+			<ol>
+				<li>What is the nature of corporate ownership in Roxbury, and is it different from the nature of corporate ownership in other neighborhoods?</li>
+				<ul><li>Roxbury seems to have a large population of adults in corrections facilities, but I am not sure where exactly these residents are living.
+					Is there a correctional facility in Roxbury that I am not aware of? If not, what is the explanation for this data strangeness?
+				</li></ul>
+				<li>What makes South Boston Waterfront's corporate and absentee ownership rates so volatile?</li>
+				<ul><li>The Waterfront neighborhood is generally an expensive place to live, so it is possible that the volatility in rates is 
+					due to the the speculative nature of the real estate market in the area. However, I would need more data to confirm this.
+				</li></ul>
+				<li>What is the nature of corporate ownership in Fenway and Longwood? Is it mostly university ownership, as I suspect?</li>
+				<ul><li>These neighborhoods have the highest percentage of college students, and I suspect that the corporate ownership in these neighborhoods
+					is mostly university-owned housing. If this is the case, then the corporate ownership rate in these neighborhoods is not as concerning as it would be if it were mostly large corporate-owned apartment buildings,
+					and should be treated differently in any analysis of eviction rates.
+				</li></ul>
+				<li>Are all corporate owners the same? Do they tend to own residential homes in certain regions over others?</li>
+				<ul><li>It is possible that the corporate owners in the dataset are mostly large corporate-owned apartment buildings, but it is also possible that they are mostly university-owned housing, or some other type of corporate owner.
+					A more detailed breakdown of the types of corporate owners and their distributions could clarify this.
+				</li></ul>
+				<li>How does all of this information connect to actual eviction filing data? Which regions have higher eviction rates, and 
+					do they correlate with any of the trends I've found in this dataset?</li>
+				<ul><li>It is possible that the trends I've found in this dataset do not correlate with eviction rates at all, and that the eviction rates are driven by other factors. 
+					However, if the trends I've found do correlate with eviction rates, then this dataset could be used to predict which regions are most vulnerable to eviction.
+				</li></ul>
+				<li><em>Why</em> do black neighborhoods have a lower corporate ownership rate and higher owner occupancy rate?</li>
+				<ul><li>It is possible that corporate owners actually actively avoid black neighborhoods due to "desirability" or other factors, and that this is the reason for the lower corporate ownership rate.
+					However, this would imply that there are other factors driving high eviction rates in black neighborhoods, and I would need more data to confirm this.
+				</li></ul>
+				<li><em>Why</em> does the owner occupancy rate of black neighborhoods increase in 2020?</li>
+				<ul><li>It is possible that the COVID-19 pandemic caused a decrease in the number of people moving in and out of these neighborhoods, and that this is the reason for the increase in owner occupancy rates.
+					However, this effect is not seen in white neighborhoods, so some other factors must be at play here. 
+				</li></ul>
+			</ol>
+
+			<h3>Additional Data needed</h3>
+			<ol>
+				<li>Eviction filing data</li>
+				<li>More detailed breakdown of types of corporate owners and their distributions</li>
+				<li>More detailed breakdown of types of domestic units and their distributions</li>
+			</ol>
+
+		</section>
+	</main>
+</body>
+</html>
