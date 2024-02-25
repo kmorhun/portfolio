@@ -15,7 +15,7 @@ let pages = {
     "projects/": "Projects",
     "cv/": "CV",
     "contact/": "Contact",
-
+    "github.com/kmorhun": "Follow Me on Github~" ,
 }
 
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
@@ -24,6 +24,10 @@ document.body.prepend(nav);
 
 for (let url in pages) {
     let title = pages[url];
-    url = (ARE_WE_HOME && !url.startsWith("http") && !url.startsWith("localhost")) ? url : "../" + url;
-    nav.insertAdjacentHTML("beforeend", `<a href="${url}">${title}</a>`);
+    url = (ARE_WE_HOME && !url.startsWith("https")  && !url.startsWith("http") && !url.startsWith("localhost")) ? url : "../" + url;
+    let a = document.createElement("a");
+    a.href = url;
+    a.textContent = title;
+    nav.append(a);
+    // nav.insertAdjacentHTML("beforeend", `<a href="${url}">${title}</a>`);
 }
