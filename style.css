@@ -1,6 +1,7 @@
 :root {
     --color-accent: #eca601;
     accent-color: var(--color-accent);
+    color-scheme: light dark;
 }
 
 body {
@@ -77,8 +78,9 @@ input, textarea {
 
 /* NAV BAR */
 nav {
+    --border-color: oklch(50% 10% 200 / 40%);
     display: flex;
-    border-bottom: 1px solid oklch(80% 3% 200);
+    border-bottom: 1px solid var(--border-color);
 
 }
 
@@ -97,14 +99,15 @@ nav a:hover {
     /* background-color: oklch(84.67% 0.1 73.73); */
     /* background-color: oklch(88.94% 0.106 82.2); */
     /* background-color: hsl(42.1, 99.2%, 71%); */
-    background-color: hsl(42.1, 90%, 71%);
+    /* background-color: hsl(42.1, 90%, 71%); */
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
     /* padding: 0.3em; */
 }
 
 nav .current-page {
-    border-bottom: 0.4em solid oklch(80% 3% 200);
-    background-color: hsl(185, 8.8%, 83%);
-
+    border-bottom: 0.4em solid var(--border-color);
+    /* background-color: hsl(185, 8.8%, 83%); */
+    background-color: color-mix(in oklch, var(--border-color), canvas 85%);
     /* padding: 0.3em; */
 }
 
