@@ -31,6 +31,14 @@ img {
     padding: 2em;
 }
 
+/* Light/Dark mode toggle */
+.switch {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+}
+
 /* PROJECTS PAGE */
 .projects {
     display: grid;
@@ -72,7 +80,7 @@ form {
     }
 }
 
-input, textarea {
+input, textarea, button, select {
     font: inherit;
 }
 
@@ -94,12 +102,8 @@ nav a {
 
 nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
-    /* background-color: red; */
+    /* The following doesn't work in Firefox :(*/
     /* background-color: oklch(from var(--color-accent) 95% 5% h); */
-    /* background-color: oklch(84.67% 0.1 73.73); */
-    /* background-color: oklch(88.94% 0.106 82.2); */
-    /* background-color: hsl(42.1, 99.2%, 71%); */
-    /* background-color: hsl(42.1, 90%, 71%); */
     background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
     /* padding: 0.3em; */
 }

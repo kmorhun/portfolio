@@ -25,15 +25,15 @@ document.body.prepend(nav);
 
 for (let url in pages) {
     let title = pages[url];
-    console.log("RAW URL", url);
+    // console.log("RAW URL", url);
 
     // make the URL relative if you're not on the home page, or if deployed
     url = (ARE_WE_HOME || url.startsWith("https")) ? url : "../" + url;
-    console.log("MODIFIED URL", url);
+    // console.log("MODIFIED URL", url);
     let a = document.createElement("a");
     a.href = url;
     a.textContent = title;
-    console.log("a.host", a.host, "location.host", location.host, "a.pathname", a.pathname, "location.pathname", location.pathname)
+    // console.log("a.host", a.host, "location.host", location.host, "a.pathname", a.pathname, "location.pathname", location.pathname)
     if (a.host !== location.host) {
         a.target = "_blank";
     }
@@ -42,6 +42,24 @@ for (let url in pages) {
     }
     nav.append(a);
     // nav.insertAdjacentHTML("beforeend", `<a href="${url}">${title}</a>`);
-
-
 }
+
+// add the light/dark mode toggle
+document.body.insertAdjacentHTML("afterbegin", 
+    `
+    <label class="switch">
+        Theme:
+        <select>
+            <option value="light dark">Automatic</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </label>
+    `
+);
+
+let select = document.querySelector("select");
+select.addEventListener("input", function (event) {
+    // console.log("color scheme changed to", event.target.value);
+    document.documentElement.style.setProperty("color-scheme", event.target.value);
+});
