@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 3</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../../style.css" />
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+	<style>
+		:root {
+			color-scheme: light;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 3</small>
+			Visualization Design
+		</h1>
+
+		<p>
+			<strong>Kateryna Morhun</strong> — <em>kmorhun@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+		<section>
+			<h2>Phase One: Sketching Visualizations</h2>
+
+      <figure>
+				<img src="./pop_pyramid.jpg" alt="A sketch of a population pyramid depicting the US female and male populations in 1900 and 2000"/>
+				<figcaption>
+					A sketch of a population pyramid depicting the US female and male populations in 1900 and 2000.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 1:
+			</p>
+
+			<ul>
+				<li>Population Pyramid: Familiar chart when working with age and sex data</li>
+				<li>Pink and blue color scheme: chosen because pink and blue have historically been easily recognizable cultural markers for male and female sex categories in the US Census</li>
+				<li>Double axes: chosen to make it easier to read  data values near the top and the bottom of the chart</li>
+				<li>I was planning to label the vertical axis with age but didn't plan for enough space when drawing, so I ended up writing the ages in the clear portions of each bar. I don't hate it, but it can be easily confused with the concept that you write values of the bars at the end of the bars.</li>
+				<li>Big tick marks at 3000 marks, and smaller tick marks at 1000: chosen to make it as easy as possible to determine absolute values</li>
+				<li>Solid bars and Clear bars: chosen to fit more data into the same space and allow easy comparison between years.</li>
+				<li><strong>Communicated well:</strong> Absolute population values, variations within a sex category</li>
+				<li><strong>Not communicated well:</strong> Actually answering the posed question, relative difference in changes between make and female populations</li>
+				<li><strong>Goals for next visualization: </strong> Put a more direct focus on change and the differences between sex, rather than on absolute values.</li>
+			</ul>
+
+      <figure>
+				<img src="./arrow_change.jpg" alt="A sketch of a bar graph depicting the change in US Population from 1900-2000 for each age group, separated by sex" />
+				<figcaption>
+					A sketch of a bar graph depicting the change in US Population from 1900-2000 for each age group, separated by sex
+				</figcaption>
+			</figure>
+			
+			<p>
+				Design Rationale for Sketch 2:
+			</p>
+			
+			<ul>
+				<li>Less Detailed Axis: Absolute change in value less important than relative changes between ages and sex</li>
+				<li>Arrows instead of Bars: Implicitly emphasizes population growth rather than a static value</li>
+				<li>Arrow with less change placed in front: make it easily discernable to the reader which sex had less change</li>
+				<li>Dotted line at age bin 25: Draw some attention to the unique quality of this bin, without taking away from other parts of the graph</li>
+				<li><strong>Communicated well:</strong> Excellent at relative differences, shows regions of interest at ages 0-25, 30-65, and 70-90</li>
+				<li><strong>Not communicated well:</strong> Absolute population counts disappear, not much context about the total sizes of these populations</li>
+				<li><strong>Goals for next visualization: </strong>Challenge myself not to use bars or bar-adjacent marks</li>
+			</ul>
+			
+
+      <figure>
+				<img src="./small_multiples.jpg" alt="A sketch of a small multiples display with 19 cells. Each cell has a line chart depicting the female and male populations at 1900 and at 2000." />
+				<figcaption>
+					A sketch of a small multiples display with 19 cells. Each cell has a line chart depicting the female and male populations at 1900 and at 2000.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 3:
+			</p>
+
+			<ul>
+				<li>Small Multiples/Trellis display: emphasize change over time and bring total populations back into focus</li>
+				<li>Shapes as point markers: Additional differentiation between male/female sex data</li>
+				<li>Thicker outline around legend: make it obvious that the legend is not a part of the visualization</li>
+				<li><strong>Communicated well: </strong>Relative start and end points of population counts</li>
+				<li><strong>Not communicated well: </strong> The same trends from graph 2 are more hidden in this display</li>
+				<li><strong>Goals for future visualizations: </strong>Pull away from the pink/blue color scheme, as it is arbitrarily chosen and comes with a lot of social baggage</li>
+			</ul>
+
+      <h3>Reflection</h3>
+
+      <p>
+		Sketch 1 was great at depicting absolute population values - you can even point out the baby boomer generation, who 
+		would have been between 35 and 50 in 2000. However, it struggled to answer my question about the differences
+		in relative changes of population between males and females. Sketch 2 was great at showing relative changes in population,
+		at the expence of absolute population values. You can point out the turning points in the population growth at age 25 and age 65, 
+		ages that align with major life milestone (joining the workforce and retirement), suggesting a pattern or external factor to investigate.
+		Sketch 3 tries to capture both absolute and relative change, and while it does show some interesting differences in 
+		starting/ending points, the ratios of the graphs makes it difficult to find any obvious trends - perhaps changing 
+		the aspect ratios of each mini-graph would help. I think design 2 is most effective at answering the question I set out to answer, 
+		while also highlighting an interesting trend in age to follow up on. In my final visualization, I intend to
+		take heavy inspiration from sketch 2, but play around with exactly which data is encoded in the heights of the arrows (maybe working 
+		with percent difference as opposed to absolute values). I also intend to use a different color scheme than pink and blue, as there is 
+		no reason to use these colors other than commercial and cultural tradition. 
+      </p>
+
+		</section>
+
+		<section>
+			<h2>Phase Two: Final Design</h2>
+
+			<figure>
+				<img src="change.png" alt="A digital version of sketch 2 - a bar graph depicting the change in US Population from 1900-2000 for each age group, separated by sex" />
+				<figcaption>
+					A digital version of sketch 2 - a bar graph depicting the change in US Population from 1900-2000 for each age group, separated by sex
+				</figcaption>
+			</figure>
+		</section>
+
+		<section>
+			<h2>Design Process & Design Decisions</h2>
+
+			<p>
+				For my final visualization, I took heavy inspiration from my second sketch, effectively recreating
+				it digitally. I used a different color scheme - purple for female population changes and green for male population changes.
+				I chose these colors because they provide a decent enough contrast without invoking the same cultural baggage as pink and blue.
+				Many of my design choices are the same as in my sketch - I used arrows instead of bars to emphasize change,
+				and I used a less detailed vertical axis to emphasize relative change over absolute change. I used a double vertical axis 
+				to make it easier to read the data values near the center and right of the chart. 
+			</p>
+
+			<p>
+				These design decisions were chosen to emphasize relative change between the male and female populations, 
+				which was the main question I set out to answer. As with the sketch, this visualization downplays the absolute population counts. Regardless,
+				I believe that the visualization does suggest a story, although more data would be needed to confirm it. Starting from the age that
+				people are able to work, the female population grows more than the male population over the 100 years.
+				It's possible this could be due to males generally being tasked with more dangerous jobs throughout the 20th century, from mining to construction, among others. 
+				It would be interesting to see this data cross-referenced with workplace injury and death data during the same time period. 
+				Additionally, there are many more female septegenarians and octogenarians in the 2000 population compared to males than in the 1900 population, which could be 
+				due to a variaty of factors, including long-term health effects of those dangerous jobs from earlier in their lives, or it could be otherwise
+				correlated with the fact that women generally have longer life expectency. In any case, this graph brings up more questions to pursue in future research while 
+				encouraging the reader to ponder, which I think is an excellent effect for a visualization to have. 
+			</p>
+			<p>
+				As for my design process, I began by modifying the original csv to reformat the data into a form I can more easily work with. Then,
+				I opened Tableau and fiddled with the bar graph settings until I got something that looked like my sketch. 
+				dual axes and a shape mark for the arrows. However, since both the female and the male population changes used dual axes, Tableau was unwilling
+				to combine the axes further to overlay the two charts on top of each other. Therefore, I pivoted to an online 
+				image editor called Pixlr, where I was able to overlay the two charts on top of each other. Finally, to create the legend, I 
+				used a different editing software that was more aligned with my technical capabilities, finalizing my design. 
+      		</p>
+
+
+      <h3>Reflection</h3>
+
+      <p>
+		I greatly appreciated the opportunity to design visualizations on paper, first. It allowed me to think more creatively about how I could
+		represent the data and what I wanted to emphasize, without getting caught up in the exact technical difficulties that I ended up running into 
+		when I tried to recreate my sketch digitally. If I had not had in mind the sketch I was trying to recreate, I never would have thought to try
+		creating that visualization in Tableau, because there were a lot of technical barriers involved in its creation. If anything, I like the final design of my sketch
+		better than the final design of my digital visualization, minus the color scheme. In the future, I intend to sketch out some example visualizations before I 
+		try anything ditigally, because pencil and paper are much more forgiving than a digital tool, especially when you are still learning how to use the tool. 
+      </p>
+		</section>
+	</main>
+</body>
+</html>
