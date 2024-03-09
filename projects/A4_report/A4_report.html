@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 4</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../../style.css" />
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+	<style>
+		:root {
+			color-scheme: light;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 4</small>
+			Persuasive or Deceptive Visualization?
+		</h1>
+
+		<p>
+			<strong>Kateryna Morhun</strong> — <em>kmorhun@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+    <h2>Proposition: Under Mayor Bill de Blasio, the police became less abusive of their power</h2>
+
+		<section>
+      <h3>AGAINST the Proposition</h3>
+
+      <figure>
+				<img src="deblasio_raised_annotated.png" alt="A stacked bar chart showing how the number of Substantiated and Exonerated complaints grows under Mayor Bill de Blasio. There is also a line indicating the total number of complaints over time. " />
+				<figcaption>
+					A stacked bar chart showing how the number of 
+					Substantiated and Exonerated complaints grows under Mayor Bill de Blasio. There is also a line indicating 
+					the total number of complaints over time. 
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Decisions and Rationale:
+			</p>
+
+			<ul>
+				<li>Filtering out Unsubstantiated Reports</li>
+					<ul>
+						<li>Rating: -1.5</li>
+						<li>The Unsubstantiated reports, when added to the visualization, do not support
+							the story that I'm trying to tell, which is critical of deBlasio. While it is not 
+							<em>untrue</em> that the number of exonerated and substantiated reports has increased
+							under deBlasio, this hides the fact that total number of complaints has actually decreased under
+							deBlasio.
+						</li>
+					</ul>
+				<li>Filtering out 2019 Data</li>
+					<ul>
+						<li>Rating: -2</li>
+						<li>The 2019 data shows the total number of complaints decreasing,
+							which is not consistent with the story that I'm trying to show. 
+							By filtering out the 2019 data, it makes the increase in complaints more 
+							salient, which is emphasized by the arrow. There is no reason not to include
+							this data besides wanting to make the chosen story more persuasive.  
+						</li>
+					</ul>
+				<li>Make the total reports arrow grow thicker over time</li>
+				<ul>
+					<li>Rating: 1</li>
+					<li>This is an earnest and subtle way to emphasize the change in number of reports over time. It draws
+						the reader's attention to the totel number of reports increasing and the arrow suggests that a future
+						increase is imminent. Because the rest of the data filtering is so deceptive, this 
+						design decision serves to support it, but on its own it's a nice touch.
+					</li>
+				</ul>
+				<li>Annotate 2014 and color-code republican and democratic mayoral times</li>
+				<ul>
+					<li>Rating: 2</li>
+					<li>The point of the visualization is to show the effect of deBlasio's tenure on police complaint reports.
+						Bloomberg, a Republican, was mayor from 2002-2013, and deBlasio, a Democrat, was mayor from 2014-2019, so 
+						annotating 2014 and color-coding the mayoral times is a good way to emphasize the change in leadership. The blue and red 
+						colors are classes democrat/republican colors, and I hand drew an annotation to make the year that
+						deBlasio took office more perceptually obvious.
+					</li>
+				</ul>
+				<li>Many tick marks and grid lines</li>
+				<ul>
+					<li>Rating: 1</li>
+					<li>This design choice is subtle, but it's always useful to have gridlines to 
+						more easily compare values. The deception comes in when you take into consideration the other deceptive 
+						factors in the chart, which this feature continues to support. 
+					</li>
+				</ul>
+			</ul>
+			
+    </section>
+
+    <section>
+      <h3>FOR the Proposition</h3>
+
+      <figure>
+			<img src="deblasio_reduced_annotated.png" alt="A stacked bar chart showing how the number of Substantiated and Exonerated complaints shrinks under Mayor Bill de Blasio. There is also a line indicating the total number of complaints over time. " />
+			<figcaption>
+				A stacked bar chart showing how the number of 
+				Substantiated and Exonerated complaints shrinks under Mayor Bill de Blasio. There is also a line indicating 
+				the total number of complaints over time. 				
+			</figcaption>
+		</figure>
+
+		<p>
+			Design Decisions and Rationale:
+		</p>
+
+		<ul>
+			<li>Including all years and all types of reports</li>
+				<ul>
+					<li>Rating: 2</li>
+					<li>Luckily, including all of the data supports the conclusion that
+						under deBlasio, complaints against police officers have decreased. 
+						Especially compared against the prior visualization, this is a very honest way to present the data.
+					</li>
+				</ul>
+			<li>Order of vertical bar stacks</li>
+				<ul>
+					<li>Rating: -1</li>
+					<li>Although all of the data is there, the order of the vertical bar graphs is intentional, 
+						and it emphasizes the decrease in unsubstantiated complaints while masking the increase in 
+						exonerated complaints by placing each bar on an unaligned axis. Any other order would make this increase
+						more obvious, so I didn't want to highlight this. It doesn't show the whole story.
+					</li>
+				</ul>
+			<li>No tick marks or grid lines</li>
+				<ul>
+					<li>Rating: -0.5</li>
+					<li>In contrast to the visualization above, I did not include grid lines in the graph
+						because the first few bars after deBlasio took office don't actually easily support the story
+						that the graph is trying to tell, and I wanted to dissuade the reader form looking too hard at those
+						initial years and comparing values to each other. Instead, I wanted them to focus on the more abvious decrease right at the end.
+					</li>
+				</ul>
+			<li>Annotate 2014 and color-code republican and democratic mayoral times</li>
+				<ul>
+					<li>Rating: 1.5</li>
+					<li>With similar reasoning as in the first visualization, I annotated the background with blue and red 
+						to emphasize republican and deBlasio's tenure, and I still think this is earnest. The bar colors of the 
+						earlier years blend into the backgroung slightly, which is intentional, as it serves as a good contrast for the 
+						"clarity" that deBlasio's democratic tenure brings (which is why this rating isn't a full 2).
+					</li>
+				</ul>
+		</ul>
+    </section>
+
+    <section>
+      <h2>Final Reflection</h2>
+
+      <p> REFLECTION HERE </p>
+    </section>
+	</main>
+</body>
+</html>
